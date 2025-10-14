@@ -2,6 +2,9 @@
   "name": "com.raxy.animation",
   "version": "1.0.0",
   "displayName": "RAXY Animation",
-  "description": "This system is wrapper for Animancer"
+  "description": "This system is wrapper for Animancer",
+  "author": {
+    "name": "RobyRAX"
+  }
 }
 
