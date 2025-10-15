@@ -16,7 +16,7 @@ namespace RAXY.Animation
 {
     public abstract class AnimationClipSetBase
     {        
-        public virtual AnimationClip AnimationClip => null;
+        public virtual AnimationClip AnimationClip { get; set; }
 
         [HorizontalGroup(Width = 50f, MarginRight = 0.0125f)]
         [HideLabel]

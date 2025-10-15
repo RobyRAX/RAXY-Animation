@@ -14,7 +14,11 @@ namespace RAXY.Animation
         [PropertyOrder(-1)]
         AnimationClip _animation;
 
-        public override AnimationClip AnimationClip => _animation;
+        public override AnimationClip AnimationClip
+        {
+            get => _animation;
+            set => _animation = value;
+        }
 
 #if UNITY_EDITOR
         public override AnimationClip AnimationToEdit => _animation;
