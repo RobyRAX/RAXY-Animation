@@ -1,5 +1,5 @@
 using System;
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using RAXY.Utility.Addressable;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -20,7 +20,7 @@ namespace RAXY.Animation
         AnimationClip _cachedAnimation;
         public override AnimationClip AnimationClip => _cachedAnimation;
 
-        public async Task<AnimationClip> LoadAnimation(string cacherContainerKey)
+        public async UniTask<AnimationClip> LoadAnimation(string cacherContainerKey)
         {
             _cachedAnimation = await AddressableCacher
                 .TryGet<AnimationClip>(cacherContainerKey, animationRef);
