@@ -9,7 +9,7 @@ using UnityEditor;
 
 namespace RAXY.Animation
 {
-    [CreateAssetMenu(fileName = "Animation Events Preset", menuName = "RAXY/Unit Data/Animation Events Preset")]
+    [CreateAssetMenu(fileName = "Animation Events Preset", menuName = "RAXY/Animation/Animation Events Preset")]
     public class AnimationEventsPresetSO : ScriptableObject
     {
 #if UNITY_EDITOR
