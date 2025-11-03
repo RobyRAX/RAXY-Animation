@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace RAXY.Animation
 {
+    [RequireComponent(typeof(AnimancerComponent))]
     public class AnimancerController : MonoBehaviour
     {
         public bool removeAcOnRuntime = true;
