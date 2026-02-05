@@ -22,7 +22,7 @@ namespace RAXY.Animation
         [ShowIf("@Mode == AEToolsMode.CopyAE")]
         [HideLabel]
         [TitleGroup("Source")]
-        public AnimationClipSetBase sourceClip;
+        public AnimationClipSet sourceClip;
 
         [ShowIf("@Mode == AEToolsMode.GetPreset")]
         [HideLabel]
@@ -31,7 +31,7 @@ namespace RAXY.Animation
 
         [HideLabel]
         [TitleGroup("Target")]
-        public AnimationClipSetBase targetClip;
+        public AnimationClipSet targetClip;
         [ShowIf("@Mode == AEToolsMode.CopyAE || Mode == AEToolsMode.GetPreset")]
         [TitleGroup("Proceed Setting")]
         public bool clearTargetAE;

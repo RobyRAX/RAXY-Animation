@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Animancer;
+using RAXY.Core.Addressable;
 using RAXY.Utility;
 using UnityEngine;
 
@@ -24,12 +25,20 @@ namespace RAXY.Animation
             Animator = GetComponent<Animator>();
         }
 
-        public virtual void PlayAnimation(AnimationClipSetBase clipSet,
+        public virtual void PlayAnimation(AnimationClipSet clipSet,
                                           float fadeDuration,
                                           int layer = MAIN_LAYER,
                                           FadeMode fadeMode = FadeMode.FixedDuration)
         {
-            if (clipSet == null || clipSet.AnimationClip == null)
+            if (clipSet == null)
+            {
+                CustomDebug.Log("Animasi Kosong");
+                return;
+            }
+
+            var animationClip = clipSet.AnimationClip;
+
+            if (animationClip == null)
             {
                 CustomDebug.Log("Animasi Kosong");
                 return;
@@ -40,7 +49,7 @@ namespace RAXY.Animation
                 fadeDuration = 0.005f;
             }
 
-            var state = Animancer.Layers[layer].Play(clipSet.AnimationClip, fadeDuration, fadeMode);
+            var state = Animancer.Layers[layer].Play(animationClip, fadeDuration, fadeMode);
             state.Speed = clipSet.speed;
 
             if (Animancer.Layers[layer].Mask)
@@ -75,7 +84,7 @@ namespace RAXY.Animation
             applyRootMotionCoroutine = null;
         }
 
-        public void StopAnimation(AnimationClipSetBase clipSet)
+        public void StopAnimation(AnimationClipSet clipSet)
         {
             try
             {
