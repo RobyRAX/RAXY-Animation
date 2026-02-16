@@ -99,12 +99,12 @@ namespace RAXY.Animation
 
         [TitleGroup("Animation Event Tool")]
         [HideLabel]
-        [ShowIf("@AnimationToEdit && showAeTool")]
+        [ShowIf("@AnimationClip_Editor && showAeTool")]
         [ShowInInspector]
         public AnimationEventEditor animationEventEditor;
 
         [TitleGroup("Animation Event Tool")]
-        [ShowIf("@AnimationToEdit && showAeTool")]
+        [ShowIf("@AnimationClip_Editor && showAeTool")]
         [Button]
         public void GetAnimationEvents()
         {
