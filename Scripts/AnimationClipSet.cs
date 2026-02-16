@@ -86,7 +86,7 @@ namespace RAXY.Animation
         [ToggleLeft]
         public bool showAeTool;
 
-        public AnimationClip AnimationToEdit
+        public AnimationClip AnimationClip_Editor
         {
             get
             {
@@ -117,7 +117,7 @@ namespace RAXY.Animation
         [TitleGroup("Animation Event Tool")]
         public void GetPresetAE(AnimationEventsPresetSO presetSO)
         {
-            AnimationEvent[] animationEvents = AnimationUtility.GetAnimationEvents(AnimationToEdit);
+            AnimationEvent[] animationEvents = AnimationUtility.GetAnimationEvents(AnimationClip_Editor);
 
             List<AnimationEvent> newEvents = new List<AnimationEvent>(animationEvents);
 
@@ -144,7 +144,7 @@ namespace RAXY.Animation
                         stringParameter = singleAeEditor.StringParameter,
                     };
 
-                    presetAE.time = Mathf.Lerp(0, AnimationToEdit.length, singleAeEditor.EventTimeRatio);
+                    presetAE.time = Mathf.Lerp(0, AnimationClip_Editor.length, singleAeEditor.EventTimeRatio);
 
                     newEvents.Add(presetAE);
                 }
@@ -152,7 +152,7 @@ namespace RAXY.Animation
 
             animationEvents = newEvents.ToArray();
 
-            AnimationUtility.SetAnimationEvents(AnimationToEdit, animationEvents);
+            AnimationUtility.SetAnimationEvents(AnimationClip_Editor, animationEvents);
 
             if (animationEventEditor == null)
                 animationEventEditor = new AnimationEventEditor();
@@ -176,7 +176,7 @@ namespace RAXY.Animation
     {
         AnimationClipSet _clipSet;
 
-        public AnimationClip AnimationClip => _clipSet.AnimationToEdit;
+        public AnimationClip AnimationClip => _clipSet.AnimationClip_Editor;
         AnimationEvent[] Events
         {
             get
@@ -638,7 +638,7 @@ namespace RAXY.Animation
         {
             get
             {
-                return _clipSet.AnimationToEdit != null;
+                return _clipSet.AnimationClip_Editor != null;
             }
         }
 

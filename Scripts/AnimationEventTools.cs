@@ -42,7 +42,7 @@ namespace RAXY.Animation
         [TitleGroup("Proceed Setting")]
         public void ProceedCopyAE()
         {
-            if (targetClip.AnimationToEdit == null)
+            if (targetClip.AnimationClip_Editor == null)
             {
                 CustomDebug.Log("Target couldn't be null");
                 return;
@@ -50,14 +50,14 @@ namespace RAXY.Animation
 
             if (clearTargetAE)
             {
-                AnimationUtility.SetAnimationEvents(targetClip.AnimationToEdit, new AnimationEvent[0]);
+                AnimationUtility.SetAnimationEvents(targetClip.AnimationClip_Editor, new AnimationEvent[0]);
             }
 
-            AnimationEvent[] targetEvents = AnimationUtility.GetAnimationEvents(targetClip.AnimationToEdit);
+            AnimationEvent[] targetEvents = AnimationUtility.GetAnimationEvents(targetClip.AnimationClip_Editor);
             AnimationEvent[] sourceEvents = null;
             AnimationEvent[] mergedEvents = null;
 
-            sourceEvents = AnimationUtility.GetAnimationEvents(sourceClip.AnimationToEdit);
+            sourceEvents = AnimationUtility.GetAnimationEvents(sourceClip.AnimationClip_Editor);
 
             // Merge both arrays
             mergedEvents = new AnimationEvent[targetEvents.Length + sourceEvents.Length];
@@ -65,7 +65,7 @@ namespace RAXY.Animation
             sourceEvents.CopyTo(mergedEvents, targetEvents.Length);
 
             // Apply merged events back to targetClip.animation without modifying the animation reference
-            AnimationUtility.SetAnimationEvents(targetClip.AnimationToEdit, mergedEvents);
+            AnimationUtility.SetAnimationEvents(targetClip.AnimationClip_Editor, mergedEvents);
             targetClip.GetAnimationEvents();
         }
 
@@ -77,7 +77,7 @@ namespace RAXY.Animation
         {
             if (preset)
 
-                if (targetClip.AnimationToEdit == null)
+                if (targetClip.AnimationClip_Editor == null)
                 {
                     CustomDebug.Log("Target couldn't be null");
                     return;
@@ -85,7 +85,7 @@ namespace RAXY.Animation
 
             if (clearTargetAE)
             {
-                AnimationUtility.SetAnimationEvents(targetClip.AnimationToEdit, new AnimationEvent[0]);
+                AnimationUtility.SetAnimationEvents(targetClip.AnimationClip_Editor, new AnimationEvent[0]);
             }
 
             targetClip.GetPresetAE(preset);
