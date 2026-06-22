@@ -62,16 +62,7 @@ namespace RAXY.Animation
             {
                 if (useAddressable)
                 {
-                    if (CachedAddressableAsset == null)
-                    {
-                        CachedAddressableAsset = AddressableService.GetLoadedAsset<AnimationClip>(AssetReference);
-
-                        if (CachedAddressableAsset == null)
-                        {
-                            Debug.LogWarning($"[AnimationClip] Addressable clip NOT loaded yet for {AssetReference.AssetGUID}");
-                        }
-                    }
-
+                    CachedAddressableAsset = AddressableService.TryGetLoadedAsset<AnimationClip>(AssetReference);
                     return CachedAddressableAsset;
                 }
                 else
